@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Agent 筆記</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f5f7fa; }
+    .list-card {
+      border-left: 4px solid #6f42c1;
+      border-radius: 0.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .list-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-dark bg-purple" style="background-color:#6f42c1;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">← 記事本網站</a>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <h1 class="mb-2">🤖 AI Agent 筆記</h1>
+    <p class="text-muted mb-4">AI Agent 開發筆記、框架比較與實作紀錄</p>
+
+    <div id="link-list" class="vstack gap-3">
+      <div class="card list-card p-3">
+        <h5 class="mb-1">範例連結</h5>
+        <small class="text-muted">在這裡新增你的第一個收藏</small>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const links = [
+      { title: "範例連結", desc: "在這裡新增你的第一個收藏", url: "#" }
+    ];
+
+    function renderList() {
+      const list = document.getElementById("link-list");
+      list.innerHTML = links.map(l => `
+        <a href="${l.url}" target="_blank" class="card list-card p-3 text-decoration-none">
+          <h5 class="mb-1 text-dark">${l.title}</h5>
+          <small class="text-muted">${l.desc}</small>
+        </a>
+      `).join("");
+    }
+    renderList();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
