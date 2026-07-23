@@ -13,6 +13,7 @@ HTML / CSS / JavaScript（純前端靜態頁面）
 
 ## 三層邊界
 - **永遠要做**：
+  - 貼入網址時，先詢問要加到哪一個主題卡片，確認後才加入
 - **要先問我**：
 - **絕對不要做**：
 
@@ -34,6 +35,7 @@ notehtml/
 ├── ipas-ai-planner.html
 ├── ai-interactive-tutorial.html
 ├── asset-collection.html
+├── skills-collection.html
 ├── docs/
 │   └── decisions.md
 └── .agent/
