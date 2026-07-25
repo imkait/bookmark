@@ -1,5 +1,6 @@
 # AI Agent 任務文件（純本機參考）
 .agent/
-.docs/
+docs/
 AGENTS.md
 CHANGELOG.md
+handoff.md
