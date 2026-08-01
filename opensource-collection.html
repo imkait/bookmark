@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>開源軟體</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f5f7fa; }
+    .list-card {
+      border-left: 4px solid #6c757d;
+      border-radius: 0.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .list-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .category-title {
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-dark" style="background-color:#6c757d;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">← 記事本網站</a>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <h1 class="mb-2">🛠️ 開源軟體</h1>
+    <p class="text-muted mb-4">依作業系統分類的免費開源軟體資源</p>
+
+    <div id="categories"></div>
+  </div>
+
+  <script>
+    const categories = [
+      {
+        title: "OS通用",
+        links: [
+          { title: "LosslessCut - mifi", desc: "無損影片/音訊剪輯工具，基於 FFmpeg 的跨平台 GUI，支援無損裁切、合併、音軌編輯、字幕嵌入，42.4k ⭐", url: "https://github.com/mifi/lossless-cut" },
+          { title: "Upscayl - upscayl", desc: "免費開源 AI 圖片放大工具，使用 Real-ESRGAN 演算法無損放大低解析度圖片，跨平台支援 Linux/macOS/Windows，47.5k ⭐", url: "https://github.com/upscayl/upscayl" },
+          { title: "Bitwarden - bitwarden", desc: "免費開源密碼管理器，支援瀏覽器擴充、桌面應用、CLI 與網頁版，跨平台同步，可自架伺服器，13.4k ⭐", url: "https://github.com/bitwarden/clients" },
+          { title: "LocalSend - localsend", desc: "免費開源 AirDrop 替代方案，透過本地網路安全傳輸檔案與訊息，無需網路或第三方伺服器，跨平台支援 Android/iOS/macOS/Windows/Linux，86k ⭐", url: "https://github.com/localsend/localsend" },
+          { title: "begin0808 - 開源 AI 工具集", desc: "包含 LiveCaption（即時雙語字幕翻譯，支援 SenseVoice/Ollama/DeepSeek，85⭐）、VoxCPM2（離線語音合成與聲音複製工作站）、studio0808_video（AI 影音工作站，整合 GPT-SoVITS/RVC/Whisper/yt-dlp）、ClimbSmart（臺灣百岳離線 PWA）等開源工具", url: "https://github.com/begin0808" }
+        ]
+      },
+      {
+        title: "Windows",
+        links: [
+          { title: "BreadboardSim - gatecat", desc: "麵包板電路模擬器，使用 C# + WPF 前端與 C++ 後端，可視化模擬數位/類比電路，支援拖拉元件與即時訊號觀察，104 ⭐", url: "https://github.com/gatecat/BreadboardSim" }
+        ]
+      },
+      {
+        title: "Mac",
+        links: [
+          { title: "Pearcleaner - alienator88", desc: "免費開源 macOS 應用程式清理工具，支援拖放解除安裝、孤兒檔案搜尋、Finder 擴充套件、Homebrew 管理，14.1k ⭐", url: "https://github.com/alienator88/Pearcleaner" }
+        ]
+      },
+      {
+        title: "Linux",
+        links: []
+      }
+    ];
+
+    function renderAll() {
+      const container = document.getElementById("categories");
+      container.innerHTML = categories.map(cat => `
+        <div class="mb-5">
+          <h4 class="category-title mb-3">${cat.title}</h4>
+          <div class="vstack gap-3">
+            ${cat.links.length === 0
+              ? '<div class="text-muted text-center py-3">尚無收藏</div>'
+              : cat.links.map(l => `
+                <a href="${l.url}" target="_blank" class="card list-card p-3 text-decoration-none">
+                  <h5 class="mb-1 text-dark">${l.title}</h5>
+                  <small class="text-muted">${l.desc}</small>
+                </a>
+              `).join("")
+            }
+          </div>
+        </div>
+      `).join("");
+    }
+    renderAll();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
